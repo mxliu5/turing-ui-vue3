@@ -1,0 +1,72 @@
+/*覆盖vp-doc的一些样式*/
+:root {
+  --vp-sidebar-width: 320px;
+}
+/* 布局覆盖[原来的代码展示页面太窄了] */
+@mixin sidebar() {
+  width: var(--vp-sidebar-width) !important;
+  padding-left: 48px !important;
+  padding-right: 24px !important;
+}
+@mixin content() {
+  padding-left: var(--vp-sidebar-width) !important;
+  padding-right: 24px !important;
+}
+.VPSidebar  {
+  @include sidebar()
+}
+.VPContent.has-sidebar  {
+  @include content();
+  .VPDoc {
+    >.container>.content {
+      padding: 0;
+      .content-container {
+        max-width: none !important;
+      }
+    }
+    .vp-doc {
+      ul, ol {
+        padding-left: 1.25rem;
+      }
+    }
+  }
+}
+.VPNavBar.has-sidebar  {
+  >.container {
+    >.title {
+      @include sidebar();
+    }
+    >.content {
+      @include content();
+      padding-right: 64px !important;
+    }
+  }
+}
+
+/* demo区域覆盖，防止被vp-doc下面的样式影响 */
+.vp-doc {
+  .tu-table {
+    table {
+      display: table;
+      margin: 0;
+      border-collapse: separate;
+      tr, th,td {
+        border: 0;
+      }
+      tr:nth-child(2n) {
+        background-color: var(--el-table-tr-bg-color);
+      }
+      th {
+        color: var(--el-table-header-text-color);
+      }
+      td.el-table__cell, th.el-table__cell.is-leaf{
+        border-bottom: var(--el-table-border);
+      }
+    }
+    &.el-table--border {
+      .el-table__cell {
+        border-right: var(--el-table-border);
+      }
+    }
+  }
+}

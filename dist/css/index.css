@@ -1,0 +1,30 @@
+.aside .outline-link.active {
+  color: var(--vp-c-brand);
+}
+.aside .outline-link:hover {
+  color: var(--vp-c-brand);
+}
+.VPSidebarItem .item .link .text el-tag {
+  margin-left: 10px;
+  color: var(--el-color-primary);
+}
+.VPContent .VPDoc .container .content {
+  padding: 0;
+}
+.VPNav {
+  z-index: 41 !important;
+}
+.VPSidebar {
+  z-index: 40 !important;
+}
+.VPSidebar.open {
+  z-index: 42 !important;
+}
+.VPContent .VPDoc.has-aside .content-container {
+  max-width: 1200px;
+}
+.vp-doc ul,
+.vp-doc ol {
+  padding-left: 0;
+  list-style: none;
+}
